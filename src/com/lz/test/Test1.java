@@ -19,4 +19,9 @@ public class Test1 {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Test1.class, args);
     }
+    @RequestMapping("/index")
+    String indexPage() {
+        return "/index.jsp";
+    }
+
 }
