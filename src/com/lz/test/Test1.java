@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by Ly on 2017/7/24.
  */
 
-@EnableAutoConfiguration
+
 @RestController
 public class Test1 {
-    @RequestMapping("/")
+    @RequestMapping("/test")
     String home() {
         return "Hello World!";
     }
@@ -19,7 +19,7 @@ public class Test1 {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Test1.class, args);
     }
-    @RequestMapping("/index")
+    @RequestMapping("/test1")
     String indexPage() {
         return "/index.jsp";
     }

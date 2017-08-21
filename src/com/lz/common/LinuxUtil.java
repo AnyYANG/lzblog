@@ -1,4 +1,4 @@
-package com.lz.test;
+package com.lz.common;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
