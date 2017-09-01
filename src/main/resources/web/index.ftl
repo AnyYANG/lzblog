@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML5手机端登录界面特效 - A5源码</title>
 
-    <link rel="stylesheet" type="text/css" href="static/css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
 
     <!--必要样式-->
-    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 </head>
 <body>
@@ -21,21 +21,21 @@
     <div class='login_fields'>
         <div class='login_fields__user'>
             <div class='icon'>
-                <img src='/static/img/user_icon_copy.png'>
+                <img src='img/user_icon_copy.png'>
             </div>
             <input placeholder='用户名' type='text'>
             <div class='validation'>
-                <img src='/static/img/tick.png'>
+                <img src='img/tick.png'>
             </div>
             </input>
         </div>
         <div class='login_fields__password'>
             <div class='icon'>
-                <img src='/static/img/lock_icon_copy.png'>
+                <img src='img/lock_icon_copy.png'>
             </div>
             <input placeholder='密码' type='password'>
             <div class='validation'>
-                <img src='/static/img/tick.png'>
+                <img src='img/tick.png'>
             </div>
         </div>
         <div class='login_fields__submit'>
@@ -54,13 +54,13 @@
     </div>
 </div>
 <div class='authent'>
-    <img src='img/puff.svg'>
+
     <p>认证中...</p>
 </div>
 
-<script type="text/javascript" src='static/js/stopExecutionOnTimeout.js?t=1'></script>
-<script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="static/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/stopExecutionOnTimeout.js?t=1"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script>
     $('input[type="submit"]').click(function () {
         $('.login').addClass('test');
@@ -126,7 +126,7 @@
 </script>
 
 <div style="text-align:center;">
-    <p>来源:<a href="http://down.admin5.com/" target="_blank">A5源码</a></p>
+    <p>来源:<a href="http://liuyang.website/" target="_blank">刘洋在线</a></p>
 </div>
 
 </body>
