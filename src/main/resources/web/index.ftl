@@ -21,21 +21,21 @@
     <div class='login_fields'>
         <div class='login_fields__user'>
             <div class='icon'>
-                <img src='static/img/user_icon_copy.png'>
+                <img src='/static/img/user_icon_copy.png'>
             </div>
             <input placeholder='用户名' type='text'>
             <div class='validation'>
-                <img src='static/img/tick.png'>
+                <img src='/static/img/tick.png'>
             </div>
             </input>
         </div>
         <div class='login_fields__password'>
             <div class='icon'>
-                <img src='static/img/lock_icon_copy.png'>
+                <img src='/static/img/lock_icon_copy.png'>
             </div>
             <input placeholder='密码' type='password'>
             <div class='validation'>
-                <img src='static/img/tick.png'>
+                <img src='/static/img/tick.png'>
             </div>
         </div>
         <div class='login_fields__submit'>
