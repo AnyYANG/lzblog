@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *  进入登陆页面
@@ -17,7 +18,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
 
     @RequestMapping(value = "/")
-    public String findOneCity() {
-        return "index";
+    public String login() {
+        return "login";
+    }
+
+
+
+
+    @RequestMapping("/zzsjpg")
+    @ResponseBody
+    public String hello() {
+        return "hello world <img src=\"img/zzs.jpg\">";
     }
 }
