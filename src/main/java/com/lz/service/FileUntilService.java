@@ -1,4 +1,6 @@
-package com.lz.until;
+package com.lz.service;
+
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.URL;
@@ -6,11 +8,12 @@ import java.net.URL;
 /**
  * Created by Ly on 2017/9/3.
  */
-public class FileUntil {
+@Service
+public class FileUntilService {
     /**
      * 以行为单位读取文件，常用于读面向行的格式化文件
      */
-    public static void readFileByLines(File file) {
+    public void readFileByLines(File file) {
         //File file = new File(fileName);
         BufferedReader reader = null;
         try {
@@ -79,9 +82,9 @@ public class FileUntil {
 
     public static void main(String args[]){
 
-        FileUntil fu= new FileUntil();
+        FileUntilService fu= new FileUntilService();
         File file = fu.getPath("user.txt");
-        readFileByLines(file);
+        fu.readFileByLines(file);
     }
 
 }
