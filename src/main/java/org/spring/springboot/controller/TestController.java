@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by bysocket on 07/02/2017.
  */
 @Controller
-public class IndexController {
+public class TestController {
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/testlogin")
     public String login() {
         return "login";
     }
