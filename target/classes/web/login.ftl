@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>欢迎回家~| zzs~</title>
+  <title>欢迎回家 | zzs~ly</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -18,10 +18,10 @@
   <link rel="stylesheet" href="bootstrapATE/plugins/iCheck/square/blue.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file://html5shiv标准版本3.73 -->
   <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
   <!-- Google Font -->
@@ -68,11 +68,11 @@
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
         Google+</a>
     </div>
-    <!-- /.social-auth-links -->
+    <!-- /.social-auth-links
 
     <a href="#">I forgot my password</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
-
+      -->
   </div>
   <!-- /.login-box-body -->
 </div>
