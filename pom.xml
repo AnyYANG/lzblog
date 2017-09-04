@@ -44,6 +44,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <!-- Add Spring-FreeMarker  依赖 -->
         <dependency>
