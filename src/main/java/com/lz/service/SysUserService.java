@@ -3,6 +3,7 @@ package com.lz.service;
 import com.lz.bean.SysUser;
 import com.lz.until.FileUntil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 
@@ -20,24 +21,28 @@ import java.util.Map;
 @Service
 public class SysUserService {
     private static Map<String, SysUser> userMap = new HashMap<String, SysUser>();
-
+    protected Logger log = Logger.getLogger(SysUserService.class);
     @PostConstruct
     public void init() {
-        ClassLoader classLoader = this.getClass().getClassLoader();  //获取类加载器
-        URL url = classLoader.getResource("user.txt");  //获取资源文件
-        System.out.println(url.getFile()); //打印出文件路径
-        File userFile = new File(url.getFile());//获得文件
-        List<String> userStringList = FileUntil.readFileByLines(userFile);
-        createUserMap(userStringList);
+        try {
+            ClassLoader classLoader = this.getClass().getClassLoader();  //获取类加载器
+            URL url = classLoader.getResource("user.txt");  //获取资源文件
+            System.out.println(url.getFile()); //打印出文件路径
+            File userFile = new File(url.getFile());//获得文件
+            List<String> userStringList = FileUntil.readFileByLines(userFile);
+            createUserMap(userStringList);
+        } catch (Exception e) {
+            //Todo  log err exception
+        }
     }
 
     /**
      * 要查询的用户名称
      *
-     * @param userName
-     * @return
+     * @param userName  用户的登陆名
+     * @return 返回用户对象
      */
-    public static SysUser findOneSysUser(String userName) {
+    public SysUser findOneSysUser(String userName) {
         return userMap.get(userName);
     }
 
