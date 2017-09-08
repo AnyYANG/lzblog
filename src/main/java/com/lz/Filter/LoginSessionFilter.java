@@ -1,5 +1,6 @@
 package com.lz.Filter;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
@@ -11,11 +12,18 @@ import java.io.IOException;
 
 @Order(1)
 //重点  order 数值越小，越小执行
-@WebFilter(filterName = "testFilter1", urlPatterns = "/*")
+@WebFilter(filterName = "sessionFilter1", urlPatterns = "/*")
 public class LoginSessionFilter implements Filter {
 
-    public FilterConfig config;
-
+    FilterConfig config;
+    @Value("${filter.logonStrings}")
+    String logonStrings;        // 登录登陆页面
+    @Value("${filter.includeStrings}")
+    String includeStrings;    // 过滤资源后缀参数
+    @Value("${filter.redirectPath}")
+    String redirectPath;// 没有登陆转向页面
+    @Value("${filter.disabletestfilter}")
+    String disabletestfilter;// 过滤器是否有效
     public void destroy() {
         this.config = null;
     }
@@ -33,10 +41,7 @@ public class LoginSessionFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest hrequest = (HttpServletRequest) request;
         HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) response);
-        String logonStrings = config.getInitParameter("logonStrings");        // 登录登陆页面
-        String includeStrings = config.getInitParameter("includeStrings");    // 过滤资源后缀参数
-        String redirectPath = hrequest.getContextPath() + config.getInitParameter("redirectPath");// 没有登陆转向页面
-        String disabletestfilter = config.getInitParameter("disabletestfilter");// 过滤器是否有效
+
 
         if (disabletestfilter.toUpperCase().equals("Y")) {    // 过滤无效
             chain.doFilter(request, response);
