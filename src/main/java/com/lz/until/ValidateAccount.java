@@ -27,7 +27,4 @@ public class ValidateAccount {
         }
         return  null;
     }
-
-
-
 }

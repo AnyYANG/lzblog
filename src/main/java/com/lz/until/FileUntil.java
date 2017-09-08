@@ -1,7 +1,11 @@
 package com.lz.until;
 
+import com.lz.bean.SysUser;
+
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ly on 2017/9/3.
@@ -10,9 +14,10 @@ public class FileUntil {
     /**
      * 以行为单位读取文件，常用于读面向行的格式化文件
      */
-    public static void readFileByLines(File file) {
+    public static List<String> readFileByLines(File file) {
         //File file = new File(fileName);
         BufferedReader reader = null;
+        List<String> userString= new ArrayList<String>();
         try {
             System.out.println("以行为单位读取文件内容，一次读一整行：");
             reader = new BufferedReader(new FileReader(file));
@@ -20,9 +25,7 @@ public class FileUntil {
             int line = 1;
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
-                // 显示行号
-                System.out.println("line " + line + ": " + tempString);
-                line++;
+                userString.add(tempString);//将String 数组读入，并返回到用户列表数组
             }
             reader.close();
         } catch (IOException e) {
@@ -32,9 +35,11 @@ public class FileUntil {
                 try {
                     reader.close();
                 } catch (IOException e1) {
+                    System.out.println("文件读入异常！ Exception"+ e1.getMessage());
                 }
             }
         }
+        return userString;
     }
 
     /**

@@ -18,7 +18,6 @@ public class LoginController {
         return "login";
     }
 
-    @ResponseBody
     @RequestMapping(value = "/loginAction")
     public String loginAction(HttpServletRequest  request) {
         String login= request.getParameter("loginname");
