@@ -3,7 +3,6 @@ package com.lz.service;
 import com.lz.bean.SysUser;
 import com.lz.until.FileUntil;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 
@@ -21,18 +20,18 @@ import java.util.Map;
 @Service
 public class SysUserService {
     private static Map<String, SysUser> userMap = new HashMap<String, SysUser>();
-    protected Logger log = Logger.getLogger(SysUserService.class);
+
+    //   protected Logger log = Logger.getLogger(SysUserService.class);
     @PostConstruct
     public void init() {
         try {
             ClassLoader classLoader = this.getClass().getClassLoader();  //获取类加载器
             URL url = classLoader.getResource("user.txt");  //获取资源文件
-            System.out.println(url.getFile()); //打印出文件路径
             File userFile = new File(url.getFile());//获得文件
             List<String> userStringList = FileUntil.readFileByLines(userFile);
             createUserMap(userStringList);
         } catch (Exception e) {
-            //Todo  log err exception
+
         }
     }
 
@@ -65,7 +64,7 @@ public class SysUserService {
                     sysuser.setLoginipHistory("" + temp[4]);
                     sysuser.setLastLoginTimes("" + temp[5]);
                     userMap.put(temp[1], sysuser);
-                    System.err.println("用户" + temp[0] + temp[1] + temp[2] + temp[3] + temp[4] + temp[5]);
+                    //            System.err.println("用户" + temp[0] + temp[1] + temp[2] + temp[3] + temp[4] + temp[5]);
                 }
 
             }
