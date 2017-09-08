@@ -28,7 +28,8 @@ public class Constants {
           URL url = classLoader.getResource("user.txt");  //获取资源文件
           System.out.println(url.getFile()); //打印出文件路径
           File userFile = new File(url.getFile());//获得文件
-          FileUntil.readFileByLines(userFile);
+         List<String> userStringList = FileUntil.readFileByLines(userFile);
 
      }
+
 }
