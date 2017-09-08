@@ -1,16 +1,16 @@
 package com.lz.bean;
 
 /**
- * Created by Ly on 2017/9/3.
+ * Created by 刘洋 on 2017/9/3.
  */
 public class SysUser {
-    private  String  id;   //序号
-    private  String  loginName;  //登陆账号
-    private  String  password;   //密码
-    private  String  username;  //用户名
-    private  String  imgsrc;   //个人头像url
-    private  String  loginipHistory;  //历史登陆ip记录
-    private  String  loginTimes;  //登陆次数
+    private String id;   //序号
+    private String loginName;  //登陆账号
+    private String password;   //密码
+    private String username;  //用户名
+    private String imgsrc;   //个人头像url
+    private String loginipHistory;  //历史登陆ip记录
+    private String lastLoginTimes;  //登陆次数
 
     public String getId() {
         return id;
@@ -60,11 +60,12 @@ public class SysUser {
         this.loginipHistory = loginipHistory;
     }
 
-    public String getLoginTimes() {
-        return loginTimes;
+
+    public String getLastLoginTimes() {
+        return lastLoginTimes;
     }
 
-    public void setLoginTimes(String loginTimes) {
-        this.loginTimes = loginTimes;
+    public void setLastLoginTimes(String lastLoginTimes) {
+        this.lastLoginTimes = lastLoginTimes;
     }
 }
