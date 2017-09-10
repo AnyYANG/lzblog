@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Ly on 2017/9/3.
@@ -41,6 +42,8 @@ public class LoginController {
         String password= request.getParameter("password");
         SysUser user = sysUserService.validateSysUser(userName, password);
         if (user != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("userlogin", "isLogin");
             return "index";
         } else {
             return "login";

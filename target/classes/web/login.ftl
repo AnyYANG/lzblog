@@ -30,19 +30,19 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="bootstrapATE/index2.html"><b>欢迎回来</b> 你辛苦啦~</a>
+      <a href="#"><b>欢迎回来</b> 终于等到你啦~</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="bootstrapATE/index2.html" method="post">
+      <form action="/loginAction" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" placeholder="输入用户名" name="loginname">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

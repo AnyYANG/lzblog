@@ -1,5 +1,6 @@
 package com.lz.Filter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 
@@ -16,8 +17,8 @@ import java.io.IOException;
 public class LoginSessionFilter implements Filter {
 
     FilterConfig config;
-    @Value("${filter.logonStrings}")
-    String logonStrings;        // 登录登陆页面
+    @Value("${filter.loginStrings}")
+    String loginStrings;        // 登录登陆页面
     @Value("${filter.includeStrings}")
     String includeStrings;    // 过滤资源后缀参数
     @Value("${filter.redirectPath}")
@@ -41,16 +42,16 @@ public class LoginSessionFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest hrequest = (HttpServletRequest) request;
         HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) response);
-
+        System.out.println(hrequest.getRequestURI());
 
         if (disabletestfilter.toUpperCase().equals("Y")) {    // 过滤无效
             chain.doFilter(request, response);
             return;
         }
-        String[] logonList = logonStrings.split(";");
+        String[] logonList = loginStrings.split(";");
         String[] includeList = includeStrings.split(";");
 
-        if (!this.isContains(hrequest.getRequestURI(), includeList)) {// 只对指定过滤参数后缀进行过滤
+        if (this.isContains(hrequest.getRequestURI(), includeList)) {// 只对指定过滤参数后缀进行过滤
             chain.doFilter(request, response);
             return;
         }
@@ -60,12 +61,13 @@ public class LoginSessionFilter implements Filter {
             return;
         }
 
-        String user = (String) hrequest.getSession().getAttribute("useronly");//判断用户是否登录
-        if (user == null) {
-            wrapper.sendRedirect(redirectPath);
+        String login = (String) hrequest.getSession().getAttribute("userlogin");//判断用户是否登录
+
+        if (StringUtils.isNotBlank(login)) {
+            chain.doFilter(request, response);
             return;
         } else {
-            chain.doFilter(request, response);
+            wrapper.sendRedirect(redirectPath);
             return;
         }
     }
