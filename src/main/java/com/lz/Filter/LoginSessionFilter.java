@@ -63,7 +63,7 @@ public class LoginSessionFilter implements Filter {
 
         String login = (String) hrequest.getSession().getAttribute("userlogin");//判断用户是否登录
 
-        if (StringUtils.isNotBlank(login)) {
+        if (StringUtils.isNotBlank(login) && login.equals("isLogin")) {
             chain.doFilter(request, response);
             return;
         } else {
