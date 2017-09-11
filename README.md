@@ -12,3 +12,6 @@
 
 ### 文档编辑器
 > http://pandao.github.io/editor.md/
+
+## 阿里云maven仓库
+> http://maven.aliyun.com/nexus
