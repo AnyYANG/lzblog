@@ -3,7 +3,6 @@
 <#include "layout/header.ftl">
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
 <#include "layout/main-header.ftl">
     <!-- Left side column. contains the logo and sidebar -->
     <#include "layout/siderbar.ftl">
@@ -33,18 +32,19 @@
                             <h3 class="box-title">Write a new blog Now!
                                 <small>Simple and fast</small>
                             </h3>
-                            <!-- tools box
+                            <!-- tools box  -->
                             <div class="pull-right box-tools">
-                                <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                <button id="saveButton" type="button" class="btn btn-default btn-sm"
                                         data-toggle="tooltip"
                                         title="Collapse">
-                                    <i class="fa fa-minus"></i></button>
-                                <button type="button" class="btn btn-default btn-sm" data-widget="remove"
+                                    <i class="fa fa-save">保存草稿</i></button>
+                                <button id="submitButton" type="button" class="btn btn-default btn-sm"
+                                        onclick="sumbmitForm()"
                                         data-toggle="tooltip"
                                         title="Remove">
-                                    <i class="fa fa-times"></i></button>
+                                    <i class="fa fa-arrow-up">发布</i></button>
                             </div>
-                             /. tools -->
+                            <!--    /. tools -->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body pad">
@@ -182,73 +182,7 @@
             <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
             <!-- /.tab-pane -->
             <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Allow mail redirect
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Other sets of options are available
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Expose author name in posts
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Allow the user to show his name in blog posts
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Show me as online
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Turn off notifications
-                            <input type="checkbox" class="pull-right">
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Delete chat history
-                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
+        <#include "layout/tap-pane.ftl">
             <!-- /.tab-pane -->
         </div>
     </aside>
@@ -268,7 +202,7 @@
 <!-- AdminLTE App -->
 <script src="/bootstrapATE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src=/"bootstrapATE/dist/js/demo.js"></script>
+<script src=/bootstrapATE/dist/js/demo.js></script>
 <!-- CK Editor -->
 <script src="/bootstrapATE/bower_components/ckeditor/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
@@ -281,6 +215,34 @@
         //bootstrap WYSIHTML5 - text editor
         $('.textarea').wysihtml5()
     })
+
+    function sumbmitForm() {
+        $.ajax({
+            type: "GET",
+            url: "/article/",
+            data: {username: $("#username").val(), content: $("#content").val()},
+            dataType: "json",
+            success: function (data) {
+                $('#resText').empty();   //清空resText里面的所有内容
+                var html = '';
+                $.each(data, function (commentIndex, comment) {
+                    html += '<div class="comment"><h6>' + comment['username']
+                            + ':</h6><p class="para"' + comment['content']
+                            + '</p></div>';
+                });
+                $('#resText').html(html);
+            }
+        });
+    }
+
+    function saveForm() {
+
+    }
+
+
+
+
+
 </script>
 </body>
 </html>

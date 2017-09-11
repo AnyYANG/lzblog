@@ -21,7 +21,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">管理列表</li>
             <li class="treeview">
-                <a href="#"><i class="fa-sticky-note"></i> <span>文章管理</span>
+                <a href="#"><i class="fa fa-edit"></i> <span>文章管理</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
