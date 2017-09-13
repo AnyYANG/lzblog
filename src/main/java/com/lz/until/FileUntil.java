@@ -1,16 +1,37 @@
 package com.lz.until;
 
 import com.lz.bean.SysUser;
+import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by Ly on 2017/9/3.
  */
 public class FileUntil {
+
+    /**
+     * 创建一个markdown 文件
+     *
+     * @param title   文件名
+     * @param content 文件内容
+     * @return 返回文件名
+     */
+    public static String CreateFile(String title, String content, String filePath) {
+        try {
+            File file = new File(filePath);
+            FileUtils.writeStringToFile(file, content);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
     /**
      * 以行为单位读取文件，常用于读面向行的格式化文件
      */
