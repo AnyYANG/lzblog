@@ -44,7 +44,7 @@ public class LoginSessionFilter implements Filter {
         HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) response);
         System.out.println(hrequest.getRequestURI());
 
-        if (disabletestfilter.toUpperCase().equals("Y")) {    // 过滤无效
+        if (disabletestfilter.toUpperCase().equals("NO_USE_FILTER")) {    // 过滤无效
             chain.doFilter(request, response);
             return;
         }
