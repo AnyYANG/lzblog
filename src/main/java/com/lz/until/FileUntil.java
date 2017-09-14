@@ -1,11 +1,15 @@
 package com.lz.until;
 
-import com.lz.bean.SysUser;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOCase;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -13,6 +17,21 @@ import java.util.List;
  * Created by Ly on 2017/9/3.
  */
 public class FileUntil {
+
+    /**
+     * 遍历一个目录 返回md文件目录列表
+     *
+     * @param path 文件目录
+     * @return md文件列表
+     */
+    public Iterator<File> iteratorFolder(String path) {
+        File file = new File(path);
+        String[] extensions = new String[]{"md"};
+        IOFileFilter filter = new SuffixFileFilter(extensions, IOCase.INSENSITIVE);
+        Iterator<File> iterator = FileUtils.iterateFiles(file, filter, DirectoryFileFilter.DIRECTORY);
+        return iterator;
+    }
+
 
     /**
      * 创建一个markdown 文件
