@@ -31,7 +31,7 @@ public class SysUserService {
             List<String> userStringList = FileUntil.readFileByLines(userFile);
             createUserMap(userStringList);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 

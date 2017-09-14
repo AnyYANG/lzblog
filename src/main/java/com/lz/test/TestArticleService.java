@@ -3,7 +3,8 @@ package com.lz.test;
 import com.lz.service.ArticleService;
 
 import com.lz.until.Constants;
-import org.junit.Test;
+import org.apache.commons.io.FileUtils;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,9 +19,10 @@ public class TestArticleService {
     @Resource
     private Constants constants;
 
-
     @Test
     public void testArticleAdd() {
         articleService.addNewArticle("liuyang", "liuyangadasdfasdfdfdjfejfiefjeifjeifiefjiejfeifeijfeifeifjeijfewfe");
     }
+
+
 }

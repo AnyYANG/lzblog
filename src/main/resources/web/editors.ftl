@@ -49,7 +49,7 @@
                         <!-- /.box-header -->
                         <div class="box-body pad">
                             <form>
-                <textarea class="textarea" placeholder="Place some text here"
+                <textarea id="textcontent" class="textarea" placeholder="Place some text here"
                           style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                             </form>
                         </div>
@@ -219,18 +219,15 @@
     function sumbmitForm() {
         $.ajax({
             type: "GET",
-            url: "/article/",
-            data: {username: $("#username").val(), content: $("#content").val()},
+            url: "/article/add",
+            data: {username: $("#username").val(), content: $("#textcontent").val()},
             dataType: "json",
             success: function (data) {
-                $('#resText').empty();   //清空resText里面的所有内容
-                var html = '';
-                $.each(data, function (commentIndex, comment) {
-                    html += '<div class="comment"><h6>' + comment['username']
-                            + ':</h6><p class="para"' + comment['content']
-                            + '</p></div>';
-                });
-                $('#resText').html(html);
+                if (data = "success") {
+                    alert("save success");
+                } else {
+                    alert("save faild");
+                }
             }
         });
     }

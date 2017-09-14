@@ -1,14 +1,19 @@
 package com.lz.service;
 
 
+import com.lz.until.Constants;
 import com.lz.until.FileUntil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.net.URL;
 import java.util.Date;
 
 @Service
 public class ArticleService {
+    @Resource
+    Constants constants;
 
     /**
      * 增加一篇新的文章
@@ -18,11 +23,13 @@ public class ArticleService {
      */
     public boolean addNewArticle(String username, String content) {
         if (StringUtils.isNotBlank(content) && StringUtils.isNotBlank(username)) {
-            String title = username + "_" + System.currentTimeMillis();
-            String fileName = FileUntil.CreateFile(title, content);
+            String filename = username + "_" + System.currentTimeMillis();
+            String path = constants.getFileFolder() + "article";
+            String fileName = FileUntil.CreateFile(filename, content, path);
             return true;
         } else {
             return false;
         }
     }
+
 }
