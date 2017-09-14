@@ -15,3 +15,6 @@
 
 ## 阿里云maven仓库
 > http://maven.aliyun.com/nexus
+
+## intelij Model  
+> https://www.jetbrains.com/help/idea/modules.html
