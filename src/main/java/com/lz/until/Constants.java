@@ -15,14 +15,14 @@ import java.net.URL;
 public class Constants implements CommandLineRunner {
 
     @Value("${constants.fileFolder}")
-    private static String fileFolder;
+    private String fileFolder;
     private static String classPath;
 
     public static String getClassPath() {
         return classPath;
     }
 
-    public static String getFileFolder() {
+    public String getFileFolder() {
         return fileFolder;
     }
 
@@ -31,4 +31,5 @@ public class Constants implements CommandLineRunner {
         URL path = this.getClass().getClassLoader().getResource("");
         classPath = path.toString();
     }
+
 }
