@@ -1,5 +1,6 @@
 package com.lz.until;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -13,10 +14,16 @@ import java.net.URL;
 @Order(value = 2)
 public class Constants implements CommandLineRunner {
 
+    @Value("${constants.fileFolder}")
+    private static String fileFolder;
     private static String classPath;
 
     public static String getClassPath() {
         return classPath;
+    }
+
+    public static String getFileFolder() {
+        return fileFolder;
     }
 
     @Override
