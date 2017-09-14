@@ -14,12 +14,11 @@ import java.net.URL;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestClassLoader {
-    @Resource
-    private SysUserService sysUserService;
 
     @Test
     public void getClassPath() {
-        URL path = this.getClass().getClassLoader().getResource("ariticle/a.txt");
+        //path:file:/E:/dairy/lzblog/target/classes/
+        URL path = this.getClass().getClassLoader().getResource("");
         System.out.println("path:" + path.toString());
     }
 }

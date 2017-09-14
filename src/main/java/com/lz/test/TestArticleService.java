@@ -2,6 +2,7 @@ package com.lz.test;
 
 import com.lz.service.ArticleService;
 
+import com.lz.until.Constants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +15,9 @@ import javax.annotation.Resource;
 public class TestArticleService {
     @Resource
     private ArticleService articleService;
+    @Resource
+    private Constants constants;
+
 
     @Test
     public void testArticleAdd() {
