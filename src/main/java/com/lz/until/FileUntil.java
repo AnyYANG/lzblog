@@ -17,12 +17,14 @@ public class FileUntil {
     /**
      * 创建一个markdown 文件
      *
-     * @param title   文件名
+     * @param filename   文件名
      * @param content 文件内容
      * @return 返回文件名
      */
-    public static String CreateFile(String title, String content, String filePath) {
+    public static String CreateFile(String filename, String content, String path) {
         try {
+            String filePath = path + "/" + filename + ".md";
+            System.out.println("filePath:" + filePath);
             File file = new File(filePath);
             FileUtils.writeStringToFile(file, content);
         } catch (Exception e) {
