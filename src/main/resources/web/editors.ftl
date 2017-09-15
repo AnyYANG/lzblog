@@ -41,7 +41,7 @@
                                 <button id="submitButton" type="button" class="btn btn-default btn-sm"
                                         onclick="sumbmitForm()"
                                         data-toggle="tooltip"
-                                        title="Remove">
+                                        title="发布">
                                     <i class="fa fa-arrow-up">发布</i></button>
                             </div>
                             <!--    /. tools -->
