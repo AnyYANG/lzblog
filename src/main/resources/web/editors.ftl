@@ -49,7 +49,7 @@
                         <!-- /.box-header -->
                         <div class="box-body pad">
                             <form>
-                <textarea id="textcontent" class="textarea" placeholder="Place some text here"
+                <textarea id="textcontent" placeholder="Place some text here"
                           style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                             </form>
                         </div>
@@ -218,12 +218,12 @@
 
     function sumbmitForm() {
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/article/add",
             data: {username: $("#username").val(), content: $("#textcontent").val()},
             dataType: "json",
             success: function (data) {
-                if (data = "success") {
+                if (data == "success") {
                     alert("save success");
                 } else {
                     alert("save faild");
