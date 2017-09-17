@@ -221,8 +221,8 @@
             type: "POST",
             url: "/article/add",
             data: {username: $("#username").val(), content: $("#textcontent").val()},
-            dataType: "json",
             success: function (data) {
+                console.log(data);
                 if (data == "success") {
                     alert("save success");
                 } else {
