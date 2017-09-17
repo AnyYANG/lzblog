@@ -4,6 +4,7 @@ import com.lz.service.ArticleService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,7 @@ public class ArticleController {
      * @return 返回登陆首页
      */
     @RequestMapping(value = "/add")
+    @ResponseBody
     public String articleAdd(HttpServletRequest request) {
         try {
             String content = request.getParameter("content");
