@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ShellUntil {
-    public static void main(String[] args){
+    public static String runShell(String  path){
         try {
-            String shpath="F:\\shell\\a.bat";
+            String shpath=path;
             Process ps = Runtime.getRuntime().exec(shpath);
             ps.waitFor();
             BufferedReader br = new BufferedReader(new InputStreamReader(ps.getInputStream()));
@@ -21,5 +21,6 @@ public class ShellUntil {
         catch (Exception e) {
             e.printStackTrace();
         }
+        return "run end";
     }
 }
