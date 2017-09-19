@@ -1,12 +1,14 @@
 package com.lz.service;
 
 import com.lz.bean.SysUser;
+import com.lz.until.Constants;
 import com.lz.until.FileUntil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,14 +22,14 @@ import java.util.Map;
 @Service
 public class SysUserService {
     private static Map<String, SysUser> userMap = new HashMap<String, SysUser>();
-
+    @Resource
+    Constants constants;
     //   protected Logger log = Logger.getLogger(SysUserService.class);
     @PostConstruct
     public void init() {
         try {
-            ClassLoader classLoader = this.getClass().getClassLoader();  //获取类加载器
-            URL url = classLoader.getResource("user.txt");  //获取资源文件
-            File userFile = new File(url.getFile());//获得文件
+            String url =constants.getUserList();
+            File userFile = new File(url);//获得文件
             List<String> userStringList = FileUntil.readFileByLines(userFile);
             createUserMap(userStringList);
         } catch (Exception e) {
