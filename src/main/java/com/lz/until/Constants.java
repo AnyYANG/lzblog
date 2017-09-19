@@ -1,5 +1,6 @@
 package com.lz.until;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -17,7 +18,7 @@ public class Constants implements CommandLineRunner {
     @Value("${constants.fileFolder}")
     private String fileFolder;
     private static String classPath;
-
+    private static String shellPath;
     public static String getClassPath() {
         return classPath;
     }
@@ -32,4 +33,12 @@ public class Constants implements CommandLineRunner {
         classPath = path.toString();
     }
 
+    public String getShellPath(String shellScriptFileName) {
+        if(StringUtils.isNotBlank(shellPath)){
+           return shellPath;
+        }else{
+            shellPath=classPath+"/shell/"+shellScriptFileName;
+           return shellPath;
+        }
+    }
 }
