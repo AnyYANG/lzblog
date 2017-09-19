@@ -15,30 +15,35 @@ import java.net.URL;
 @Order(value = 2)
 public class Constants implements CommandLineRunner {
 
+    /**
+     * 文章文件夹
+     */
     @Value("${constants.fileFolder}")
     private String fileFolder;
-    private static String classPath;
-    private static String shellPath;
-    public static String getClassPath() {
+    /**
+     * 用户列表位置
+     */
+    @Value("${constants.userListFile}")
+    private String userListFile;
+    @Value("${constants.shellDir}")
+    private  String shellPath;
+
+    private  String classPath;
+    public  String getClassPath() {
         return classPath;
     }
-
     public String getFileFolder() {
         return fileFolder;
     }
-
     @Override
     public void run(String... args) throws Exception {
         URL path = this.getClass().getClassLoader().getResource("");
         classPath = path.toString();
     }
-
     public String getShellPath(String shellScriptFileName) {
-        if(StringUtils.isNotBlank(shellPath)){
-           return shellPath;
-        }else{
-            shellPath=classPath+"/shell/"+shellScriptFileName;
-           return shellPath;
-        }
+           return shellPath+shellScriptFileName;
+    }
+    public String getUserList() {
+        return userListFile;
     }
 }
