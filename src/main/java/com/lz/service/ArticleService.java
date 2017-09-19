@@ -3,6 +3,7 @@ package com.lz.service;
 
 import com.lz.until.Constants;
 import com.lz.until.FileUntil;
+import com.lz.until.ShellUntil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,10 @@ public class ArticleService {
         if (StringUtils.isNotBlank(content) && StringUtils.isNotBlank(username)) {
             String filename = username + "_" + System.currentTimeMillis();
             String path = constants.getFileFolder() + "article";
+            // 保存文件
             String fileName = FileUntil.CreateFile(filename, content, path);
+            //运行hexo  更新网站
+            ShellUntil.runShell(constants.getShellPath("hexoGenerate.sh"));
             return true;
         } else {
             return false;
