@@ -24,7 +24,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/addpage")
     public String articleAddPage() {
-        return "editors";
+        return "/article/editors";
     }
 
     /**
@@ -33,10 +33,9 @@ public class ArticleController {
      * @return 返回登陆首页
      */
     @RequestMapping(value = "/add")
-    @ResponseBody
     public String articleAdd(HttpServletRequest request) {
         try {
-            String content = request.getParameter("content");
+            String content = request.getParameter("textcontent");
             HttpSession session = request.getSession();
             String userName = (String) session.getAttribute("userSession");
             String userlogin = (String) session.getAttribute("userlogin");
