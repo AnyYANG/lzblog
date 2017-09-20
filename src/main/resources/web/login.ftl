@@ -32,7 +32,7 @@
   <div class="login-logo">
       <a href="#"><b>欢迎回来</b> 终于等到你啦~</a>
   </div>
-  <!-- /.login-logo -->
+
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
@@ -74,15 +74,13 @@
     <a href="register.html" class="text-center">Register a new membership</a>
       -->
   </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
 
-<!-- jQuery 3 -->
+</div>
+
 <script src="bootstrapATE/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
+
 <script src="bootstrapATE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
+
 <script src="bootstrapATE/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
