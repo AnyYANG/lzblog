@@ -63,17 +63,17 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="/bootstrapATE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <img src="${Session.user.imgsrc!'##'}" class="user-image" alt="User Image">
+                        <span class="hidden-xs"> ${Session.user.username!"欢迎使用"}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="/bootstrapATE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="${Session.user.imgsrc!'##'}" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                            ${Session.user.username!"欢迎使用"} - Web Developer
+                                <small>Member since Nov. 2015</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
