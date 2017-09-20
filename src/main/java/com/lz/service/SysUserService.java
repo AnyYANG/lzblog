@@ -60,15 +60,15 @@ public class SysUserService {
                 if (StringUtils.isNotBlank(user)) {
                     String temp[] = user.split("@");
                     sysuser.setId("" + temp[0]);
-                    sysuser.setUsername("" + temp[1]);
+                    sysuser.setLoginName(""+temp[1]);
                     sysuser.setPassword("" + temp[2]);
-                    sysuser.setImgsrc("" + temp[3]);
-                    sysuser.setLoginipHistory("" + temp[4]);
-                    sysuser.setLastLoginTimes("" + temp[5]);
+                    sysuser.setUsername("" + temp[3]);
+                    sysuser.setImgsrc("" + temp[4]);
+                    sysuser.setLoginipHistory("" + temp[5]);
+                    sysuser.setLastLoginTimes("" + temp[6]);
                     userMap.put(temp[1], sysuser);
                     //            System.err.println("用户" + temp[0] + temp[1] + temp[2] + temp[3] + temp[4] + temp[5]);
                 }
-
             }
         }
     }
