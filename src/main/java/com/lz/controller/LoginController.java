@@ -45,6 +45,7 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("userlogin", "isLogin");
             session.setAttribute("userSession", userName);
+            session.setAttribute("user", user);
             return "index";
         } else {
             return "login";
