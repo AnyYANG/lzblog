@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
+
 /**
  * Created by Ly on 2017/9/3.
  */
@@ -62,11 +63,13 @@ public class FileUntil {
         List<String> userString= new ArrayList<String>();
         try {
             System.out.println("以行为单位读取文件内容，一次读一整行：");
-            reader = new BufferedReader(new FileReader(file));
+            InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
+            reader = new BufferedReader(isr);
             String tempString = null;
             int line = 1;
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
+                System.out.println("用户信息列表："+tempString);
                 userString.add(tempString);//将String 数组读入，并返回到用户列表数组
             }
             reader.close();
@@ -122,7 +125,6 @@ public class FileUntil {
             e.printStackTrace();
         }
     }
-
 
     public static void main(String args[]){
 
