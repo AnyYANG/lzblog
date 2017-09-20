@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-<#include "layout/header.ftl">
+<#include "../layout/header.ftl">
+<link rel="stylesheet" href="/markdown/css/style.css" />
+<link rel="stylesheet" href="/markdown/css/editormd.min.css" />
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<#include "layout/main-header.ftl">
+<#include "../layout/main-header.ftl">
     <!-- Left side column. contains the logo and sidebar -->
-    <#include "layout/siderbar.ftl">
+    <#include "../layout/siderbar.ftl">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -25,8 +27,6 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-12">
-
-
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Write a new blog Now!
@@ -48,22 +48,42 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body pad">
-                            <form>
-                <textarea id="textcontent" placeholder="Place some text here"
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">---
-title:
-date:
-tags:
--
-categories:
--
----
+                            <form id="textcontentform" action="/article/add">
+                                <div id="test-editormd">
+                                 <textarea name="textcontent" id="textcontent" style="display:none;">[TOC]
 
-##
+#### Disabled options
 
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
 
+#### Editor.md directory
 
-                </textarea>
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+</textarea>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -75,7 +95,7 @@ categories:
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<#include "layout/main-footer.ftl">
+<#include "../layout/main-footer.ftl">
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
@@ -195,7 +215,7 @@ categories:
             <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
             <!-- /.tab-pane -->
             <!-- Settings tab content -->
-        <#include "layout/tap-pane.ftl">
+        <#include "../layout/tap-pane.ftl">
             <!-- /.tab-pane -->
         </div>
     </aside>
@@ -214,40 +234,31 @@ categories:
 <script src="/bootstrapATE/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/bootstrapATE/dist/js/adminlte.min.js"></script>
-
+<!-- AdminLTE for demo purposes -->
+<script src=/bootstrapATE/dist/js/demo.js></script>
+<script src="/markdown/js/editormd.min.js"></script>
 <script>
     $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        //  CKEDITOR.replace('editor1')
-        //bootstrap WYSIHTML5 - text editor
-        $('.textarea').wysihtml5()
+        testEditor = editormd("test-editormd", {
+            watch : false,
+            width   : "90%",
+            height  : 640,
+            toolbar  : false,
+             syncScrolling : "single",
+            path    : "/markdown/lib/"
+        });
+
     })
 
     function sumbmitForm() {
-        $.ajax({
-            type: "POST",
-            url: "/article/add",
-            data: {username: $("#username").val(), content: $("#textcontent").val()},
-            success: function (data) {
-                if (data == "success") {
-
-                    alert("save success");
-                } else {
-
-                    alert("save faild");
-                }
-            }
+        $("#textcontentform").submit(function(e){
+            alert("Submitted");
         });
     }
 
     function saveForm() {
 
     }
-
-
-
-
 
 </script>
 </body>
