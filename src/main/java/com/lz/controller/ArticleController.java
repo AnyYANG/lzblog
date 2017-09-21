@@ -41,7 +41,7 @@ public class ArticleController {
             String userlogin = (String) session.getAttribute("userlogin");
             if (StringUtils.isNotBlank(userlogin)) {
                 articleService.addNewArticle(userName, content);
-                return "success";
+                return "/public/success";
             }
         } catch (Exception e) {
             e.printStackTrace();
