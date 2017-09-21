@@ -248,9 +248,8 @@
     })
 
     function sumbmitForm() {
-        $("#textcontentform").submit(function(e){
-            alert("Submitted");
-        });
+       // alert("adsf");
+       $("#textcontentform").submit();
     }
 
     function saveForm() {
