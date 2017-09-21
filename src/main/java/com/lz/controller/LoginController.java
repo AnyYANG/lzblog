@@ -52,4 +52,10 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value = "/goindex")
+    public String goIndex(HttpServletRequest  request) {
+
+            return "index";
+    }
+
 }
