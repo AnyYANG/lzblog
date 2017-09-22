@@ -50,7 +50,13 @@
                         <div class="box-body pad">
                             <form id="textcontentform" action="/article/add">
                                 <div id="test-editormd">
-                                 <textarea name="textcontent" id="textcontent" style="display:none;">[TOC]
+                                 <textarea name="textcontent" id="textcontent" style="display:none;">
+ ---
+title: 输入标题
+date: 日期
+---
+
+[TOC]
 
 #### Disabled options
 
@@ -62,26 +68,7 @@
 
 #### Editor.md directory
 
-    editor.md/
-            lib/
-            css/
-            scss/
-            tests/
-            fonts/
-            images/
-            plugins/
-            examples/
-            languages/
-            editormd.js
-            ...
 
-```html
-&lt;!-- English --&gt;
-&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
-
-&lt;!-- 繁體中文 --&gt;
-&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
-```
 </textarea>
                                 </div>
                             </form>
