@@ -26,7 +26,7 @@ public class LoginController {
      *
      * @return 返回登陆首页
      */
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/")
     public String login() {
         return "login";
     }
